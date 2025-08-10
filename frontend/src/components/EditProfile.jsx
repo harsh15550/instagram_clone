@@ -34,7 +34,7 @@ const EditProfile = ({ dialog, setDialog }) => {
             formData.append('gender', gender);
 
             const res = await axios.post(
-                'http://localhost:4000/api/user/edit',
+                'https://instagram-clone-5r4x.onrender.com/api/user/edit',
                 formData,
                 {
                     headers: { 'Content-Type': 'multipart/form-data' },

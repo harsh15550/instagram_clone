@@ -45,7 +45,7 @@ const Posts = ({ item }) => {
   // POST DELETE 
   const handleDelete = async () => {
     try {
-      const res = await axios.delete(`http://localhost:4000/api/post/deletepost/${item._id}`, {
+      const res = await axios.delete(`https://instagram-clone-5r4x.onrender.com/api/post/deletepost/${item._id}`, {
         withCredentials: true
       });
 
@@ -85,7 +85,7 @@ const Posts = ({ item }) => {
   const likeDislikeHandler = async (postId) => {
     const action = !like ? 'like' : 'dislike';
     try {
-      const res = await axios.post(`http://localhost:4000/api/post/${action}/${postId}`, {}, {
+      const res = await axios.post(`https://instagram-clone-5r4x.onrender.com/api/post/${action}/${postId}`, {}, {
         withCredentials: true
       });
 
@@ -113,7 +113,7 @@ const Posts = ({ item }) => {
     if (!like) {
 
       try {
-        const res = await axios.post(`http://localhost:4000/api/post/like/${itemId}`, {}, {
+        const res = await axios.post(`https://instagram-clone-5r4x.onrender.com/api/post/like/${itemId}`, {}, {
           withCredentials: true
         });
 
@@ -137,7 +137,7 @@ const Posts = ({ item }) => {
   const commentHandler = async () => {
     try {
       const res = await axios.post(
-        `http://localhost:4000/api/post/addcomment/${item._id}`,
+        `https://instagram-clone-5r4x.onrender.com/api/post/addcomment/${item._id}`,
         { text },
         {
           headers: {
@@ -174,7 +174,7 @@ const Posts = ({ item }) => {
     }
     try {
       const response = await axios.post(
-        `http://localhost:4000/api/post/bookmark/${itemId}`,
+        `https://instagram-clone-5r4x.onrender.com/api/post/bookmark/${itemId}`,
         {},
         { withCredentials: true }
       );

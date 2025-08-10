@@ -14,7 +14,7 @@ import { FaImage } from 'react-icons/fa6'
 import { CgPlayButtonR } from "react-icons/cg";
 
 const LeftSidebar = () => {
-    const url = "http://localhost:4000";
+    const url = "https://instagram-clone-5r4x.onrender.com";
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [open, setOpen] = useState(null);

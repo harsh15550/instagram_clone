@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 import { setAuthuser } from './redux/authslice';
 
 const Login = () => {
-    const url = "http://localhost:4000";
+    const url = "https://instagram-clone-5r4x.onrender.com";
     const [loading, setLoading] = useState(false);
     const dispatch = useDispatch();
     const [input, setInput] = useState({

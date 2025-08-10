@@ -79,7 +79,7 @@ const AddStory = () => {
             }
 
             // Upload to Cloudinary
-            const res = await axios.post('http://localhost:4000/api/stories/create', formData, { withCredentials: true });
+            const res = await axios.post('https://instagram-clone-5r4x.onrender.com/api/stories/create', formData, { withCredentials: true });
 
             if (res.data.success) {
                 toast.success(res.data.message);
@@ -100,7 +100,7 @@ const AddStory = () => {
 
     const fetchStories = async () => {
         try {
-            const res = await axios.get(`http://localhost:4000/api/stories/allStory`);
+            const res = await axios.get(`https://instagram-clone-5r4x.onrender.com/api/stories/allStory`);
             if (res.data.success) {
                 setStories(res?.data?.storys);
             }
@@ -111,7 +111,7 @@ const AddStory = () => {
 
     // GET LOGIN USER STORY 
     const loginUserStory = async () => {
-        const response = await axios.get('http://localhost:4000/api/stories/userstory', { withCredentials: true })
+        const response = await axios.get('https://instagram-clone-5r4x.onrender.com/api/stories/userstory', { withCredentials: true })
         if (response?.data?.success) {
             setLoginUserStory(response?.data?.story)
         }
@@ -150,7 +150,7 @@ const AddStory = () => {
 
     const handleDeleteStory = async (itemId) => {
         try {
-            const response = await axios.delete(`http://localhost:4000/api/stories/deleteStory/${itemId}`);
+            const response = await axios.delete(`https://instagram-clone-5r4x.onrender.com/api/stories/deleteStory/${itemId}`);
             if(response.data.success){
                 setLoginUserStory(prevStories => prevStories.filter(story => story._id !== itemId));
                 setUserStoryOpen(false);

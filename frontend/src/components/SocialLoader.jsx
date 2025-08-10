@@ -1,6 +1,6 @@
 import React from "react";
 import { FaHeart, FaComment, FaShare } from "react-icons/fa";
-import instaIcon from "../assets/Instagram1.jpg"
+import instaIcon from "../assets/instagram1.jpg"
 
 const Loader = () => {
   return (

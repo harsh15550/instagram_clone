@@ -10,7 +10,7 @@ const Home = () => {
   useEffect(() => {
     const deleteStory = async () => {
       try {
-        const res = await axios.delete("http://localhost:4000/api/stories/expdeleteStory")
+        const res = await axios.delete("https://instagram-clone-5r4x.onrender.com/api/stories/expdeleteStory")
       } catch (error) {
         console.log(error.message);
       }

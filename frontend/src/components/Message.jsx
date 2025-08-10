@@ -43,7 +43,7 @@ const Message = ({ setRepliedMessage, repliedMessage, setRepliedUserId, setRepli
 
     const fetchMessages = async () => {
         try {
-            const res = await axios.get(`http://localhost:4000/api/message/all/${selectUser._id}`, {
+            const res = await axios.get(`https://instagram-clone-5r4x.onrender.com/api/message/all/${selectUser._id}`, {
                 withCredentials: true
             });
 
@@ -61,7 +61,7 @@ const Message = ({ setRepliedMessage, repliedMessage, setRepliedUserId, setRepli
 
     const unSendMessageHandler = async () => {
         try {
-            const response = await axios.post(`http://localhost:4000/api/message/unsend/${selectUser?._id}/${repliedMessageId}`, {}, {
+            const response = await axios.post(`https://instagram-clone-5r4x.onrender.com/api/message/unsend/${selectUser?._id}/${repliedMessageId}`, {}, {
                 headers: {
                     'Content-Type': 'application/json',
                 },

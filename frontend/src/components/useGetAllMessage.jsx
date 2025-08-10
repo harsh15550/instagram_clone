@@ -11,7 +11,7 @@ const useGetAllMessage = () => {
         try {
             if(selectUser){
 
-                const res = await axios.get(`http://localhost:4000/api/message/all/${selectUser._id}`, {
+                const res = await axios.get(`https://instagram-clone-5r4x.onrender.com/api/message/all/${selectUser._id}`, {
                     withCredentials: true
                 });
     

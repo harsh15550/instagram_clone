@@ -17,7 +17,7 @@ const PostDialog = ({ postOpen, setPostOpen, activePost, setActivePost }) => {
     const commentHandler = async () => {
         try {
             const res = await axios.post(
-                `http://localhost:4000/api/post/addcomment/${activePost._id}`,
+                `https://instagram-clone-5r4x.onrender.com/api/post/addcomment/${activePost._id}`,
                 { text },
                 {
                     headers: {

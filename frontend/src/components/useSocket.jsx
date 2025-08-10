@@ -11,7 +11,7 @@
 
 //     useEffect(() => {
 //         if (user && !socket) {  // Ensure only one instance of socket is created
-//             socket = io('http://localhost:4000', {
+//             socket = io('https://instagram-clone-5r4x.onrender.com', {
 //                 query: { userId: user._id },
 //                 transports: ['websocket']
 //             });
@@ -49,7 +49,7 @@ const useSocket = () => {
 
     useEffect(() => {
         if (user) {
-            const socketIo = io('http://localhost:4000', {
+            const socketIo = io('https://instagram-clone-5r4x.onrender.com', {
                 query: { userId: user._id },
                 transports: ['websocket']
             });

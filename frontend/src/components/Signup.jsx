@@ -7,7 +7,7 @@ import { Loader2 } from 'lucide-react';
 
 const Signup = () => {
 
-    const url = "http://localhost:4000";
+    const url = "https://instagram-clone-5r4x.onrender.com";
     const [loading, setLoading] = useState(false); // Initially not loading
     const [input, setInput] = useState({
         username: "",

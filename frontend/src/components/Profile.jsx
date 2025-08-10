@@ -47,7 +47,7 @@ const Profile = () => {
     if (searchUser) {
 
       try {
-        const response = await axios.get(`http://localhost:4000/api/user/search?username=${searchUser}`);
+        const response = await axios.get(`https://instagram-clone-5r4x.onrender.com/api/user/search?username=${searchUser}`);
         if (response.data.success) {
           const filteredUsers = followUser.filter(fuser => response.data.users.some(user => user._id === fuser._id))
           setUsers(filteredUsers);
@@ -77,7 +77,7 @@ const Profile = () => {
 
   const handlefollowUnfollow = async () => {
     try {
-      const res = await axios.post(`http://localhost:4000/api/user/followunfollow/${userProfile._id}`, {}, {
+      const res = await axios.post(`https://instagram-clone-5r4x.onrender.com/api/user/followunfollow/${userProfile._id}`, {}, {
         withCredentials: true
       })
       if (res.data.success) {

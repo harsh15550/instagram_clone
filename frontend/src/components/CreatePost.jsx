@@ -32,7 +32,7 @@ const CreatePostDialog = ({ selectedImage, selectedReel, setSelectedReel, setFil
         formData.append("media", isReel ? selectedReel : selectedImage); // Add the file (image or reel)
 
         try {
-            const res = await axios.post(`http://localhost:4000/api/post/add`, formData, {
+            const res = await axios.post(`https://instagram-clone-5r4x.onrender.com/api/post/add`, formData, {
                 headers: { "Content-Type": "multipart/form-data" },
                 withCredentials: true,
             });
@@ -61,7 +61,7 @@ const CreatePostDialog = ({ selectedImage, selectedReel, setSelectedReel, setFil
             const formData = new FormData();
             formData.append("image", selectedImage);
 
-            const response = await axios.post('http://localhost:4000/api/caption/image-to-text', formData, {
+            const response = await axios.post('https://instagram-clone-5r4x.onrender.com/api/caption/image-to-text', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

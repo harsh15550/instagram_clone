@@ -12,7 +12,7 @@ const RightSideBar = () => {
   const dispatch = useDispatch();
 
   const handlefollowUnfollow = async (userId) => {
-    const res = await axios.post(`http://localhost:4000/api/user/followunfollow/${userId}`, {}, {
+    const res = await axios.post(`https://instagram-clone-5r4x.onrender.com/api/user/followunfollow/${userId}`, {}, {
       withCredentials: true
     })
     if (res.data.success) {

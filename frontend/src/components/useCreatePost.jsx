@@ -20,7 +20,7 @@ const useCreatePost = (caption, selectedImage) => {
         formData.append('image', selectedImage);
 
         try {
-            const res = await axios.post('http://localhost:4000/api/post/addpost', formData, {
+            const res = await axios.post('https://instagram-clone-5r4x.onrender.com/api/post/addpost', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
                 withCredentials: true, // For sending cookies if needed
             });

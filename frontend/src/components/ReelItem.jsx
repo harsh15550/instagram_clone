@@ -33,7 +33,7 @@ const ReelItem = ({ reel, handleVideoClick, playingVideo, videoRefs }) => {
     const commentHandler = async (item) => {
         try {
             const res = await axios.post(
-                `http://localhost:4000/api/post/addcomment/${item}`,
+                `https://instagram-clone-5r4x.onrender.com/api/post/addcomment/${item}`,
                 { text },
                 {
                     headers: {
@@ -64,7 +64,7 @@ const ReelItem = ({ reel, handleVideoClick, playingVideo, videoRefs }) => {
         }
         try {
             const response = await axios.post(
-                `http://localhost:4000/api/post/bookmark/${itemId}`,
+                `https://instagram-clone-5r4x.onrender.com/api/post/bookmark/${itemId}`,
                 {},
                 { withCredentials: true }
             );

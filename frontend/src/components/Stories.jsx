@@ -20,7 +20,7 @@ const Stories = () => {
   // Fetch stories from the API
   const fetchStories = async () => {
     try {
-      const res = await axios.get(`http://localhost:4000/api/stories/allStory`);
+      const res = await axios.get(`https://instagram-clone-5r4x.onrender.com/api/stories/allStory`);
       const fetchedStories = res?.data?.storys;
 
       // Group stories by user
@@ -45,7 +45,7 @@ const Stories = () => {
     if (!storyId) return;
     try {
       await axios.post(
-        `http://localhost:4000/api/stories/storyseenuser/${storyId}`,
+        `https://instagram-clone-5r4x.onrender.com/api/stories/storyseenuser/${storyId}`,
         {},
         { withCredentials: true }
       );

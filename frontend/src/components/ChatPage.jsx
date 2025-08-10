@@ -49,7 +49,7 @@ const ChatPage = () => {
 
             // API request
             const res = await axios.post(
-                `http://localhost:4000/api/message/send/${receiverId}`,
+                `https://instagram-clone-5r4x.onrender.com/api/message/send/${receiverId}`,
                 { repliedMessage, messages, time, repliedUserId },
                 {
                     headers: {

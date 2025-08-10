@@ -30,7 +30,7 @@ const App = () => {
 
 useEffect(() => {
   if (user) {
-    const socketIo = io('http://localhost:4000', {
+    const socketIo = io('https://instagram-clone-5r4x.onrender.com', {
       query: { userId: user?._id },
       transports: ['websocket']
     });
@@ -64,7 +64,7 @@ useEffect(() => {
 }, [user, dispatch]);
 
   useEffect(() => {
-    if(post) setLoading(true);
+    if(post) setLoading(false);
   }, [post])
 
   if(loading) {

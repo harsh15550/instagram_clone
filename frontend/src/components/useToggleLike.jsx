@@ -16,7 +16,7 @@ const useToggleLike = (item) => {
   const likeDislikeHandler = async (postId) => {
     const action = !like ? 'like' : 'dislike';
     try {
-      const res = await axios.post(`http://localhost:4000/api/post/${action}/${postId}`, {}, {
+      const res = await axios.post(`https://instagram-clone-5r4x.onrender.com/api/post/${action}/${postId}`, {}, {
         withCredentials: true
       });
 

@@ -9,7 +9,7 @@ const SearchUser = ({ setIsPopupOpen }) => {
     const handleSearchUser = async () => {
         if (searchUser) {
             try {
-                const response = await axios.get(`http://localhost:4000/api/user/search?username=${searchUser}`);
+                const response = await axios.get(`https://instagram-clone-5r4x.onrender.com/api/user/search?username=${searchUser}`);
 
                 if (response.status === 200) {
                     if (response.data.success && response.data.users.length > 0) {

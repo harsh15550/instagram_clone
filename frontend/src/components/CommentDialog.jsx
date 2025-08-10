@@ -14,7 +14,7 @@ const CommentDialog = ({ dialog, setDialog }) => {
 
   // const getAllComment = async () => {
   //   try {
-  //     const res = await axios.post(`http://localhost:4000/api/post/allcomment/${comment._id}`, {}, { withCredentials: true });
+  //     const res = await axios.post(`https://instagram-clone-5r4x.onrender.com/api/post/allcomment/${comment._id}`, {}, { withCredentials: true });
   //     if (res.data.success) {
   //       console.log('Fetched Comments:', res.data.comments);
   //       setGetComment(res.data.comments); 
@@ -27,7 +27,7 @@ const CommentDialog = ({ dialog, setDialog }) => {
   const commentHandler = async () => {
     try {
       const res = await axios.post(
-        `http://localhost:4000/api/post/addcomment/${comment._id}`,
+        `https://instagram-clone-5r4x.onrender.com/api/post/addcomment/${comment._id}`,
         { text },
         {
           headers: {
