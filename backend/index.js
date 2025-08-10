@@ -31,8 +31,10 @@ app.use(express.static('upload'));
 
 app.use(cors({
     origin: ["http://localhost:5173", "https://instagram-frontend-g2i1.vercel.app"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
-}))
+}));
 
 app.use("/api/user", userRoute);
 app.use("/api/post", postRoute);
