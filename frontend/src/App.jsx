@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import Signup from './components/Signup';
 import Login from './components/Login';
@@ -14,16 +14,19 @@ import Ai from './components/Ai';
 import ProtectedRoute from './components/ProtectedRoute';
 import Reels from './components/Reels';
 import Explore from './components/Explore';
+// import SocialLoader from './components/SocialLoader';
+import Loader from './components/SocialLoader';
 
 const App = () => {
   const location = useLocation();
 
   const noLayoutRoutes = ['/login', '/register'];
-
+  const [loading, setLoading] = useState(true);
   const { user } = useSelector(store => store.auth);
   const { socket } = useSelector(store => store.socket);
   const dispatch = useDispatch();
   const socketRef = useRef(null); // Store socket instance outside Redux
+    const { post } = useSelector(store => store.post);
 
 useEffect(() => {
   if (user) {
@@ -60,6 +63,15 @@ useEffect(() => {
   }
 }, [user, dispatch]);
 
+  useEffect(() => {
+    if(post) setLoading(true);
+  }, [post])
+
+  if(loading) {
+    return (
+      <Loader />
+    )
+  }
 
 
   const PublicRoute = ({ children }) => {
