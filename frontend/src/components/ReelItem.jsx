@@ -207,7 +207,7 @@ const ReelItem = ({ reel, handleVideoClick, playingVideo, videoRefs }) => {
             </div>
 
             {/* Comment Popup */}
-            {activeCommentId === selectPost._id && (
+            {activeCommentId === selectPost?._id && (
                 <div id="popup-overlay" onClick={() => handleOutsideClick()} className="absolute h-[600px] top-[80px] right-[-370px] w-[350px] h-[350px] bg-zinc-900 text-white rounded-md shadow-lg p-3 z-10">
                     <h3 className="text-lg font-bold border-b border-gray-600 mb-2">Comments</h3>
                     <div className="max-h-[500px] mb-10 bg-zinc-900 overflow-y-auto">

@@ -11,12 +11,12 @@ const Reels = () => {
   
   useEffect(() => {
     if (post && post.length > 0) {
-      const reel = post.filter((item) => item.reel);
+      const reel = post?.filter((item) => item.reel);
       setReels(reel);
 
       // Automatically play the first reel on page load
       if (reel.length > 0) {
-        setPlayingVideo(reel[0]._id);
+        setPlayingVideo(reel[0]?._id);
       }
     }
   }, []);
@@ -24,27 +24,27 @@ const Reels = () => {
   useEffect(() => {
     // Automatically play the current reel if it's not already playing
     if (playingVideo && videoRefs.current[playingVideo]) {
-      videoRefs.current[playingVideo].play();
+      videoRefs?.current[playingVideo].play();
     }
 
     // Pause other videos
-    reels.forEach((reel) => {
-      if (reel._id !== playingVideo && videoRefs.current[reel._id]) {
-        videoRefs.current[reel._id].pause();
+    reels?.forEach((reel) => {
+      if (reel?._id !== playingVideo && videoRefs?.current[reel._id]) {
+        videoRefs?.current[reel?._id].pause();
       }
     });
   }, [playingVideo, reels]);
 
   const handleVideoClick = (id) => {
-    const currentVideo = videoRefs.current[id];
+    const currentVideo = videoRefs?.current[id];
     if (currentVideo) {
       if (playingVideo === id) {
         currentVideo.pause();
         setPlayingVideo(null);
       } else {
         // Pause the currently playing video (if any)
-        if (playingVideo !== null && videoRefs.current[playingVideo]) {
-          videoRefs.current[playingVideo].pause();
+        if (playingVideo !== null && videoRefs?.current[playingVideo]) {
+          videoRefs?.current[playingVideo].pause();
         }
         currentVideo.play();
         setPlayingVideo(id);
@@ -53,7 +53,7 @@ const Reels = () => {
   };
 
   const handleOutsideClick = (e) => {
-    if (e.target.id === "popup-overlay") {
+    if (e?.target?.id === "popup-overlay") {
       setActiveCommentId(null);
     }
   };
@@ -69,7 +69,7 @@ const Reels = () => {
     >
       {reels.map((reel) => {
         return (
-          <ReelItem playingVideo={playingVideo} videoRefs={videoRefs} key={reel._id} reel={reel} handleVideoClick={handleVideoClick} />
+          <ReelItem playingVideo={playingVideo} videoRefs={videoRefs} key={reel?._id} reel={reel} handleVideoClick={handleVideoClick} />
         );
       })}
     </div>

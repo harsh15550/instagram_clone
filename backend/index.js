@@ -30,7 +30,7 @@ app.use(express.static('upload'));
 
 
 app.use(cors({
-    origin: ["http://localhost:5173", "https://instagram-frontend-mu.vercel.app"],
+    origin: ["http://localhost:5173", "https://instagram-frontend-mu.vercel.app" , "https://instagram-frontend-g2i1.vercel.app"],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true

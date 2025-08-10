@@ -37,7 +37,7 @@ const register = async (req, res) => {
 const login = async (req, res) => {
     try {
         const { password, email } = req.body;
-        const userData = await user.findOne({ email });
+        const userData = await user.findOne({ email });        
 
         if (!userData) {
             return res.status(404).json({ success: false, message: "User not found" });
@@ -48,7 +48,7 @@ const login = async (req, res) => {
         if (isPasswordValid) {
             const token = jwt.sign({ userId: userData._id }, process.env.JWT_SECRET);
 
-            res.cookie('token', token, { httpOnly: true, secure: true, maxAge: 7 * 24 * 60 * 60 * 1000  });
+            res.cookie('token', token, { httpOnly: true, secure: true, maxAge: 7 * 24 * 60 * 60 * 1000 , sameSite: "none"  });
 
             return res.status(200).json({ success: true, userData, token, message: "Login successful" });
         } else {
@@ -150,6 +150,8 @@ const editProfile = async (req, res) => {
 };
 
 const getSuggestedUser = async (req, res) => {
+    console.log("login is "  , req.id);
+    
     const suggestedUsers = await user.find({ _id: { $ne: req.id } }).select("-password");
     if (!suggestedUsers) {
         return res.json({ message: "Currently Do not any user", success: false })

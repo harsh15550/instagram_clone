@@ -16,58 +16,62 @@ import Reels from './components/Reels';
 import Explore from './components/Explore';
 // import SocialLoader from './components/SocialLoader';
 import Loader from './components/SocialLoader';
+import useSuggestedUser from './components/useSuggestedUser';
 
 const App = () => {
   const location = useLocation();
-
+  const fetchSuggesteduser = useSuggestedUser();
   const noLayoutRoutes = ['/login', '/register'];
   const [loading, setLoading] = useState(true);
   const { user } = useSelector(store => store.auth);
   const { socket } = useSelector(store => store.socket);
   const dispatch = useDispatch();
   const socketRef = useRef(null); // Store socket instance outside Redux
-    const { post } = useSelector(store => store.post);
-
-useEffect(() => {
-  if (user) {
-    const socketIo = io('https://instagram-clone-5r4x.onrender.com', {
-      query: { userId: user?._id },
-      transports: ['websocket']
-    });
-
-    socketRef.current = socketIo; // Store socket instance in useRef
-
-    dispatch(setSocket({ id: socketIo.id, connected: socketIo.connected })); // Store only serializable data
-
-    socketIo.on('connect', () => {
-      dispatch(setSocket({ id: socketIo.id, connected: socketIo.connected }));
-    });
-
-    socketIo.on('disconnect', () => {
-      dispatch(setSocket({ id: null, connected: false }));
-    });
-
-    socketIo.on('getOnlineUsers', (onlineUser) => {
-      dispatch(setOnlineUsers(onlineUser));
-    });
-
-    return () => {
-      socketIo.close();
-      dispatch(setSocket({ id: null, connected: false }));
-      socketRef.current = null;
-    };
-  } else if (socketRef.current) {
-    socketRef.current.close();
-    dispatch(setSocket({ id: null, connected: false }));
-    socketRef.current = null;
-  }
-}, [user, dispatch]);
+  const { post } = useSelector(store => store.post);
 
   useEffect(() => {
-    if(post) setLoading(false);
+    fetchSuggesteduser;
+  }, [])
+  useEffect(() => {
+    if (user) {
+      const socketIo = io('https://instagram-clone-5r4x.onrender.com', {
+        query: { userId: user?._id },
+        transports: ['websocket']
+      });
+
+      socketRef.current = socketIo; // Store socket instance in useRef
+
+      dispatch(setSocket({ id: socketIo.id, connected: socketIo.connected })); // Store only serializable data
+
+      socketIo.on('connect', () => {
+        dispatch(setSocket({ id: socketIo.id, connected: socketIo.connected }));
+      });
+
+      socketIo.on('disconnect', () => {
+        dispatch(setSocket({ id: null, connected: false }));
+      });
+
+      socketIo.on('getOnlineUsers', (onlineUser) => {
+        dispatch(setOnlineUsers(onlineUser));
+      });
+
+      return () => {
+        socketIo.close();
+        dispatch(setSocket({ id: null, connected: false }));
+        socketRef.current = null;
+      };
+    } else if (socketRef.current) {
+      socketRef.current.close();
+      dispatch(setSocket({ id: null, connected: false }));
+      socketRef.current = null;
+    }
+  }, [user, dispatch]);
+
+  useEffect(() => {
+    if (post) setLoading(false);
   }, [post])
 
-  if(loading) {
+  if (loading) {
     return (
       <Loader />
     )
@@ -77,7 +81,7 @@ useEffect(() => {
   const PublicRoute = ({ children }) => {
     return user ? <Navigate to="/" replace /> : children;
   };
-  
+
   const validRoutes = ['/', '/login', '/register', '/profile/:id', '/chat', '/ai']; // Define your valid routes
 
 
